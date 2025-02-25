@@ -1,4 +1,4 @@
-const apiKey = '75326fdc'; // Replace with your actual OMDb API key
+const apiKey = '75326fdc';
 
 document.getElementById('searchButton').addEventListener('click', () => {
     const movieTitle = document.getElementById('searchInput').value;
@@ -35,7 +35,7 @@ function searchMovie(title) {
 
 function displayMovies(movies) {
     const movieResults = document.getElementById('movieResults');
-    movieResults.innerHTML = ''; // Clear previous results
+    movieResults.innerHTML = ''; 
     movies.forEach(movie => {
         const apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`;
         fetch(apiUrl)
@@ -164,5 +164,4 @@ function displayFavorites() {
     }
 }
 
-// Display favorites on page load
 displayFavorites();
