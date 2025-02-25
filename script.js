@@ -129,30 +129,39 @@ function removeFromFavorites(movieID) {
 function displayFavorites() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const favoritesContainer = document.getElementById('favorites');
+    const emptyMessage = document.getElementById('emptyMessage');
+    
     if (!favoritesContainer) {
         console.error('favorites element not found');
         return;
     }
+    
     favoritesContainer.innerHTML = '';
-    favorites.forEach(movieID => {
-        fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieID}`)
-            .then(response => response.json())
-            .then(movie => {
-                favoritesContainer.innerHTML += `
-                    <div class="movie" onclick="openModal('${movie.imdbID}')">
-                        <img src="${movie.Poster}" alt="${movie.Title}">
-                        <div class="movie-details">
-                            <h3>${movie.Title} (${movie.Year})</h3>
-                            <p><strong>Genre:</strong> ${movie.Genre}</p>
-                            <p><strong>Director:</strong> ${movie.Director}</p>
-                            <p><strong>Actors:</strong> ${movie.Actors}</p>
-                            <p><strong>Plot:</strong> ${movie.Plot}</p>
-                            <button class="unsave-button" onclick="event.stopPropagation(); removeFromFavorites('${movie.imdbID}')">Unsave</button>
+    
+    if (favorites.length === 0) {
+        emptyMessage.style.display = 'block';
+    } else {
+        emptyMessage.style.display = 'none';
+        favorites.forEach(movieID => {
+            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieID}`)
+                .then(response => response.json())
+                .then(movie => {
+                    favoritesContainer.innerHTML += `
+                        <div class="movie" onclick="openModal('${movie.imdbID}')">
+                            <img src="${movie.Poster}" alt="${movie.Title}">
+                            <div class="movie-details">
+                                <h3>${movie.Title} (${movie.Year})</h3>
+                                <p><strong>Genre:</strong> ${movie.Genre}</p>
+                                <p><strong>Director:</strong> ${movie.Director}</p>
+                                <p><strong>Actors:</strong> ${movie.Actors}</p>
+                                <p><strong>Plot:</strong> ${movie.Plot}</p>
+                                <button class="unsave-button" onclick="event.stopPropagation(); removeFromFavorites('${movie.imdbID}')">Unsave</button>
+                            </div>
                         </div>
-                    </div>
-                `;
-            });
-    });
+                    `;
+                });
+        });
+    }
 }
 
 // Display favorites on page load

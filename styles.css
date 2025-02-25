@@ -140,6 +140,15 @@ h2 {
     flex: 2 1 500px; /* Flex-grow, flex-shrink, and flex-basis */
 }
 
+.modal-content p {
+    line-height: 1.6; /* Adjust line height for better readability */
+    margin-bottom: var(--spacing); /* Add space between paragraphs */
+}
+
+.modal-content h2 {
+    margin-bottom: var(--spacing); /* Add space below the heading */
+}
+
 .close {
     color: var(--text-color);
     position: absolute;
@@ -208,3 +217,16 @@ h2 {
     background-color: var(--primary-color);
 }
 
+#emptyMessage {
+    text-align: left;
+    color: var(--text-color);
+    margin-top: var(--spacing);
+}
+
+.heart-svg svg {
+    width: 1em;
+    height: 1em;
+    fill: var(--text-color); /* Use the text color for the heart */
+    vertical-align: middle; /* Align with text */
+    margin-left: 0.2em;
+}
