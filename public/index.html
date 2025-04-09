@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search: For The Girls</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sticky">
+            <h1>Movie Search: For The Girls <span class="heart-svg">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </span></h1>
+            <br>
+            <input type="text" id="searchInput" placeholder="Search for a movie...">
+            <button id="searchButton">Search</button>
+            <br>
+        </div>
+        <div id="movieResults"></div>
+        <div id="favoritesContainer">
+            <h2>Favorites</h2>
+            <br>
+            <p id="emptyMessage">Your saved movies will show up here!</p>
+            <div id="favorites"></div>
+        </div>
+    </div>
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalPoster" src="" alt="Movie Poster">
+            <div id="modalMovieDetails" class="details"></div>
+            <div id="commentSection">
+                <h3>Comments</h3>
+                <div id="comments"></div>
+                <textarea id="commentInput" placeholder="Add a comment..."></textarea>
+                <input type="number" id="ratingInput" min="1" max="10" placeholder="Rating (1-10)">
+                <button onclick="saveComment()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

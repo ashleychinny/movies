@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  },
+  "name": "movies-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleychinny/movies.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashleychinny/movies/issues"
+  },
+  "homepage": "https://github.com/ashleychinny/movies#readme"
+}
