@@ -3,7 +3,8 @@ const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 
 const app = express();
-const db = new sqlite3.Database('./database.sqlite'); // Ensure this matches your database file path
+
+const db = new sqlite3.Database('C:\\Users\\chinay\\OneDrive - FANUC America Corporation\\Documents\\movies-1\\Database.sqlite'); // Use the absolute path
 
 app.use(bodyParser.json());
 app.use(express.static('public')); // Serve static files
